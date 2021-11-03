@@ -1,9 +1,32 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from "next";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+
+import { useState } from "react";
+
+import { generate } from "../functions/generate";
 
 const Home: NextPage = () => {
+  const [name, setName] = useState("");
+  const [symbol, setSymbol] = useState("");
+  const [decimals, setDecimals] = useState(18);
+  const [initialSupply, setInitialSupply] = useState(1000);
+
+  const [Output, setOutput] = useState("");
+
+  const runGenerate = (e: any) => {
+    e.preventDefault();
+
+    setOutput(
+      generate({
+        name,
+        symbol,
+        decimals,
+        initialSupply,
+      })
+    );
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,61 +35,45 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <form action="" onSubmit={runGenerate}>
+        <input
+          type=""
+          placeholder="Token Name here:"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Token Symbol here:"
+          value={symbol}
+          onChange={(e) => setSymbol(e.target.value)}
+        />
+        <br />
+        <input
+          type="number"
+          placeholder="Token decimals here:"
+          value={decimals}
+          onChange={(e) => setDecimals(Number(e.target.value))}
+        />
+        <br />
+        <input
+          type="number"
+          placeholder="Token Suppply:"
+          value={initialSupply}
+          onChange={(e) => setInitialSupply(Number(e.target.value))}
+        />
+        <br />
+        <button>Generate Token</button>
+      </form>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <div className="output">
+        <pre>
+          <code>{Output}</code>
+        </pre>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
