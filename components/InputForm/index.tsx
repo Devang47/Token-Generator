@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { generate } from "functions/generate";
+import Brackets from "@components/SVGs/Brackets";
 
 function InputForm({ setOutput }: { setOutput: any }) {
   const [name, setName] = useState("");
@@ -22,9 +23,9 @@ function InputForm({ setOutput }: { setOutput: any }) {
   };
 
   return (
-    <section className=" min-h-screen py-20 flex items-center justify-center bg-blue_2">
+    <section className="min-h-screen py-20 flex items-center justify-center bg-blue_2 w-full">
       <form
-        className=" bg-blue_1 w-11/12 rounded-md overflow-hidden shadow_custom  max-w-lg"
+        className=" bg-blue_1 w-11/12 rounded-md overflow-hidden shadow_custom  max-w-lg lg:max-w-2xl relative"
         action=""
         onSubmit={runGenerate}
       >
@@ -33,41 +34,43 @@ function InputForm({ setOutput }: { setOutput: any }) {
             DEV Tokens
           </h1>
         </nav>
-        <div className="px-6 py-8">
+        <div className="px-6 py-8 lg:py-10 lg:px-8">
           <label className="flex items-start justify-start flex-col">
-            <div className=" text-sm text-blue_3 text-opacity-80 ">
+            <div className=" text-sm md:text-base text-blue_3 text-opacity-80 ">
               Token Name:
             </div>
             <input
               type=""
               placeholder="Token Name here:"
               required
-              className="py-2 px-4 rounded-md bg-input_bg placeholder-blue_3 placeholder-opacity-60 text-dark  text-base mt-1 outline-none focus:ring-2 ring-blue_2"
+              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </label>
 
           <label className="flex items-start justify-start flex-col mt-5">
-            <div className=" text-sm text-blue_3 text-opacity-80 ">Symbol:</div>
+            <div className=" text-sm md:text-base text-blue_3 text-opacity-80 ">
+              Symbol:
+            </div>
             <input
               type="text"
               placeholder="Token Symbol here:"
               required
-              className="py-2 px-4 rounded-md bg-input_bg placeholder-blue_3 placeholder-opacity-60 text-dark  text-base mt-1 outline-none focus:ring-2 ring-blue_2"
+              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg"
               value={symbol}
               onChange={(e) => setSymbol(e.target.value)}
             />
           </label>
 
           <label className="flex items-start justify-start flex-col mt-5">
-            <div className=" text-sm text-blue_3 text-opacity-80 ">
+            <div className=" text-sm md:text-base text-blue_3 text-opacity-80 ">
               Total Decimals:
             </div>
             <input
               type="number"
               placeholder="Token decimals here:"
-              className="py-2 px-4 rounded-md bg-input_bg placeholder-blue_3 placeholder-opacity-60 text-dark  text-base mt-1 outline-none focus:ring-2 ring-blue_2"
+              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg"
               value={decimals}
               onChange={(e) =>
                 setDecimals(
@@ -78,13 +81,13 @@ function InputForm({ setOutput }: { setOutput: any }) {
           </label>
 
           <label className="flex items-start justify-start flex-col mt-5">
-            <div className=" text-sm text-blue_3 text-opacity-80 ">
+            <div className=" text-sm md:text-base text-blue_3 text-opacity-80 ">
               Initial supply:
             </div>
             <input
               type="number"
               value={initialSupply}
-              className="py-2 px-4 rounded-md bg-input_bg placeholder-blue_3 placeholder-opacity-60 text-dark  text-base mt-1 outline-none focus:ring-2 ring-blue_2"
+              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg"
               onChange={(e) => setInitialSupply(Number(e.target.value))}
             />
             <div className=" text-sm text-blue_3 text-opacity-80 mt-2">
@@ -92,9 +95,12 @@ function InputForm({ setOutput }: { setOutput: any }) {
             </div>
           </label>
 
-          <button className=" py-2 px-5 mt-8 rounded-lg text-white bg-blue_3 hover:bg-dark duration-100 font-medium">
+          <button className=" py-2 px-5 mt-8 rounded-lg text-white bg-blue_3 hover:bg-dark duration-100 font-medium transform hover:scale-105 active:scale-95">
             Generate Token
           </button>
+        </div>
+        <div className="hidden lg:block lg:absolute top-32 right-12 shadow_custom">
+          <Brackets />
         </div>
       </form>
     </section>

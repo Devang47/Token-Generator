@@ -3,10 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "npx prettier --write . && next build && next export",
     "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky install"
+    "lint": "next lint"
   },
   "dependencies": {
     "cssnano": "^5.0.9",
@@ -22,7 +21,6 @@
     "autoprefixer": "^10.4.0",
     "eslint": "7",
     "eslint-config-next": "12.0.2",
-    "husky": ">=6",
     "lint-staged": ">=10",
     "postcss": "^8.3.11",
     "tailwindcss": "^2.2.19",

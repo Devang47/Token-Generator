@@ -4,14 +4,23 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #3d5a80;
-  font-family: "Inter", sans-serif;
   font-size: 16px;
+  font-family: "Inter", sans-serif;
 }
 
 code {
   font-family: "Fira Code", monospace;
+  font-size: 14px;
+}
+
+pre {
+  min-height: 450px;
 }
 
 .fira {
