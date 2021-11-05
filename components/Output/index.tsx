@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 function Index({ data }: { data: any }) {
   const [copy, setCopy] = useState("Copy");
@@ -21,9 +22,18 @@ function Index({ data }: { data: any }) {
   };
 
   return (
-    <section
+    <motion.section
+      animate={{
+        y: [-20, 0],
+        opacity: [0, 1],
+        transition: {
+          duration: 0.5,
+          delay: 0.5,
+          ease: "easeInOut",
+        },
+      }}
       id="result"
-      className="min-h-screen py-20 flex items-center justify-center w-full"
+      className="min-h-screen py-20 flex items-center justify-center w-full opacity-0"
     >
       <div className="shadow_custom bg-blue_1 w-11/12 rounded-lg overflow-hidden max-w-lg lg:max-w-2xl">
         <nav className=" bg-dark flex items-center justify-start py-4 px-6">
@@ -76,7 +86,7 @@ function Index({ data }: { data: any }) {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

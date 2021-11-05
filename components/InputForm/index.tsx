@@ -3,6 +3,8 @@ import { useState } from "react";
 import { generate } from "functions/generate";
 import Brackets from "@components/SVGs/Brackets";
 
+import { motion } from "framer-motion";
+
 function InputForm({ setOutput }: { setOutput: any }) {
   const [name, setName] = useState("");
   const [symbol, setSymbol] = useState("");
@@ -24,8 +26,17 @@ function InputForm({ setOutput }: { setOutput: any }) {
 
   return (
     <section className="min-h-screen py-20 flex items-center justify-center bg-blue_2 w-full">
-      <form
-        className=" bg-blue_1 w-11/12 rounded-md overflow-hidden shadow_custom  max-w-lg lg:max-w-2xl relative"
+      <motion.form
+        animate={{
+          y: [-20, 0],
+          opacity: [0, 1],
+          transition: {
+            duration: 0.5,
+            delay: 0.5,
+            ease: "easeInOut",
+          },
+        }}
+        className=" bg-blue_1 w-11/12 rounded-md overflow-hidden shadow_custom  max-w-lg lg:max-w-2xl relative opacity-0"
         action=""
         onSubmit={runGenerate}
       >
@@ -102,7 +113,7 @@ function InputForm({ setOutput }: { setOutput: any }) {
         <div className="hidden lg:block lg:absolute top-32 right-12 shadow-md">
           <Brackets />
         </div>
-      </form>
+      </motion.form>
     </section>
   );
 }
