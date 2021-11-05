@@ -1,13 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  background: #e5e5e5;
+  background: #3d5a80;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
 }
 
 code {
   font-family: "Fira Code", monospace;
+}
+
+.fira {
+  font-family: "Fira Code", monospace;
+}
+
+.shadow_custom {
+  box-shadow: 0px 1.8px 2.2px rgba(0, 0, 0, 0.011),
+    0px 4.3px 5.3px rgba(0, 0, 0, 0.016), 0px 8.1px 10px rgba(0, 0, 0, 0.02),
+    0px 14.5px 17.9px rgba(0, 0, 0, 0.024),
+    0px 27.2px 33.4px rgba(0, 0, 0, 0.029), 0px 65px 80px rgba(0, 0, 0, 0.04);
 }
