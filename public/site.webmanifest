@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "ERC-20 Token Generator",
+  "short_name": "Token Generator",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#EDFEFF",
+  "background_color": "#EDFEFF",
   "display": "standalone"
 }

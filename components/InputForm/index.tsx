@@ -31,17 +31,17 @@ function InputForm({ setOutput }: { setOutput: any }) {
           y: [-20, 0],
           opacity: [0, 1],
           transition: {
-            duration: 0.5,
-            delay: 0.5,
-            ease: "easeInOut",
+            duration: 0.8,
+            delay: 2.8,
+            ease: [0.65, 0, 0.35, 1],
           },
         }}
-        className=" bg-blue_1 w-11/12 rounded-md overflow-hidden shadow_custom  max-w-lg lg:max-w-2xl relative opacity-0"
+        className=" bg-blue_1 w-11/12 rounded-md overflow-hidden shadow-lg  max-w-lg lg:max-w-2xl relative opacity-0"
         action=""
         onSubmit={runGenerate}
       >
-        <nav className=" bg-blue_3 flex items-center justify-start py-4 px-6">
-          <h1 className="font-bold py-2 px-4 bg-blue_1 shadow text-blue_3 rounded-lg">
+        <nav className=" bg-blue_3 flex items-center justify-start py-4 px-6 shadow_custom">
+          <h1 className="font-bold py-2 px-4 bg-blue_1 shadow text-blue_3 rounded-lg shadow_custom">
             DEV Tokens
           </h1>
         </nav>
@@ -106,7 +106,7 @@ function InputForm({ setOutput }: { setOutput: any }) {
             </div>
           </label>
 
-          <button className=" py-2 px-5 mt-8 rounded-lg text-white bg-blue_3 hover:bg-dark duration-100 font-medium transform hover:scale-105 active:scale-95">
+          <button className=" py-2 px-5 mt-8 rounded-lg text-white bg-blue_3 hover:bg-dark duration-100 font-medium transform hover:scale-105 active:scale-95 shadow_custom">
             Generate Token
           </button>
         </div>

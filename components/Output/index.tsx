@@ -27,17 +27,17 @@ function Index({ data }: { data: any }) {
         y: [-20, 0],
         opacity: [0, 1],
         transition: {
-          duration: 0.5,
-          delay: 0.5,
-          ease: "easeInOut",
+          duration: 0.8,
+          delay: 2.8,
+          ease: [0.65, 0, 0.35, 1],
         },
       }}
       id="result"
       className="min-h-screen py-20 flex items-center justify-center w-full opacity-0"
     >
-      <div className="shadow_custom bg-blue_1 w-11/12 rounded-lg overflow-hidden max-w-lg lg:max-w-2xl">
-        <nav className=" bg-dark flex items-center justify-start py-4 px-6">
-          <h1 className=" font-bold py-2 px-4 bg-blue_1 shadow text-dark rounded-lg">
+      <div className="shadow-lg bg-blue_1 w-11/12 rounded-lg overflow-hidden max-w-lg lg:max-w-2xl">
+        <nav className=" bg-dark flex items-center justify-start py-4 px-6 shadow_custom">
+          <h1 className=" font-bold py-2 px-4 bg-blue_1 shadow text-dark rounded-lg shadow_custom">
             {data.fileName || <> Your contract:</>}
           </h1>
         </nav>
