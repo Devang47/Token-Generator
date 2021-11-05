@@ -43,7 +43,7 @@ function InputForm({ setOutput }: { setOutput: any }) {
               type=""
               placeholder="Token Name here:"
               required
-              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg"
+              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg focus:shadow-inner"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -57,7 +57,7 @@ function InputForm({ setOutput }: { setOutput: any }) {
               type="text"
               placeholder="Token Symbol here:"
               required
-              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg"
+              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg focus:shadow-inner"
               value={symbol}
               onChange={(e) => setSymbol(e.target.value)}
             />
@@ -70,7 +70,7 @@ function InputForm({ setOutput }: { setOutput: any }) {
             <input
               type="number"
               placeholder="Token decimals here:"
-              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg"
+              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg focus:shadow-inner"
               value={decimals}
               onChange={(e) =>
                 setDecimals(
@@ -87,7 +87,7 @@ function InputForm({ setOutput }: { setOutput: any }) {
             <input
               type="number"
               value={initialSupply}
-              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg"
+              className="py-2 px-4 rounded-md bg-input_bg placeholder-dark placeholder-opacity-60 text-dark  text-base mt-1 outline-none md:py-3 md:px-5 md:text-lg focus:shadow-inner"
               onChange={(e) => setInitialSupply(Number(e.target.value))}
             />
             <div className=" text-sm text-blue_3 text-opacity-80 mt-2">
@@ -99,7 +99,7 @@ function InputForm({ setOutput }: { setOutput: any }) {
             Generate Token
           </button>
         </div>
-        <div className="hidden lg:block lg:absolute top-32 right-12 shadow_custom">
+        <div className="hidden lg:block lg:absolute top-32 right-12 shadow-md">
           <Brackets />
         </div>
       </form>

@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 interface generatorInputs {
   name: string;
   symbol: string;
@@ -19,6 +21,16 @@ export let generate = ({
 
   const contractName = toCamelCase(name);
   window.location.href = "#result";
+
+  toast.success("Token code generated!", {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
 
   return {
     data: `// SPDX-License-Identifier: MIT

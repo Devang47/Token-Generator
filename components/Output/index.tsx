@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 
-function index({ data }: { data: any }) {
+function Index({ data }: { data: any }) {
+  const [copy, setCopy] = useState("Copy");
+
   const copyData = () => {
-    navigator.clipboard.writeText(data);
+    navigator.clipboard.writeText(data).then(() => {
+      setCopy("Copied");
+
+      toast.success("Copied!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    });
   };
 
   return (
@@ -23,36 +38,38 @@ function index({ data }: { data: any }) {
               {data && (
                 <button
                   onClick={copyData}
-                  className="absolute bottom-6 right-6 py-2 px-4 text-white bg-dark hover:bg-dark duration-100 rounded-lg font-medium transform hover:scale-105 active:scale-95 lg:bottom-10 lg:right-10"
+                  className="absolute bottom-6 right-6 py-2 px-5 text-white bg-blue_3 hover:bg-dark duration-100 rounded-lg font-medium transform hover:scale-105 active:scale-95 lg:bottom-10 lg:right-10 flex items-center justify-center gap-2"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    aria-hidden="true"
-                    role="img"
-                    width="80"
-                    height="80"
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 24 24"
-                  >
-                    <g fill="none">
-                      <path
-                        d="M8 4v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7.242a2 2 0 0 0-.602-1.43L16.083 2.57A2 2 0 0 0 14.685 2H10a2 2 0 0 0-2 2z"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeWidth="2"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M16 18v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h2"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </g>
-                  </svg>
-                  Copy
+                  <div className="">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      width="16"
+                      height="16"
+                      preserveAspectRatio="xMidYMid meet"
+                      viewBox="0 0 24 24"
+                    >
+                      <g fill="none">
+                        <path
+                          d="M8 4v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7.242a2 2 0 0 0-.602-1.43L16.083 2.57A2 2 0 0 0 14.685 2H10a2 2 0 0 0-2 2z"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeWidth="2"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M16 18v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h2"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <div className="">{copy}</div>
                 </button>
               )}
             </pre>
@@ -63,4 +80,4 @@ function index({ data }: { data: any }) {
   );
 }
 
-export default index;
+export default Index;
