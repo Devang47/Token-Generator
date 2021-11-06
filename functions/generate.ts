@@ -54,6 +54,6 @@ contract ${contractName}  is ERC20{
         _burn(msg.sender, amount);
     }
 }`,
-    fileName: `${contractName}.sol`,
+    fileName: contractName,
   };
 };

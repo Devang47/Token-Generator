@@ -31,6 +31,7 @@ contract ContractName is ERC20{
         _burn(msg.sender, amount);
     }
 }`,
+    fileName: "Sample",
   });
 
   return (

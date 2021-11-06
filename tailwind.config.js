@@ -8,9 +8,7 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      black: colors.black,
       white: colors.white,
-      gray: colors.trueGray,
       blue_1: "#EDFEFF",
       blue_2: "#98C1D9",
       blue_3: "#3D5A80",
@@ -19,7 +17,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      scale: ["hover", "focus", "active"],
+    },
   },
   plugins: [],
 };
